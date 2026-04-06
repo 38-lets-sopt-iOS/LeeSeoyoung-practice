@@ -23,6 +23,8 @@ class WelcomeViewController: UIViewController {
         label.textAlignment = .center
         label.font = .boldSystemFont(ofSize: 25)
         label.numberOfLines = 2
+        label.adjustsFontSizeToFitWidth = true // 텍스트가 UILabel 너비 초과할 때 폰트 크기 줄여 맞춤
+        label.minimumScaleFactor = 0.5 // 폰트 크기 50%까지 줄일 수 있음
         return label
     }()
     
