@@ -9,6 +9,13 @@ import UIKit
 
 class LoginViewController: UIViewController {
     
+    private let loginImageView: UIImageView = {
+        let imageView = UIImageView(frame: CGRect(x: 160, y: 90, width: 55, height: 57))
+        imageView.image = UIImage(named: "login.jpg")
+        imageView.contentMode = .scaleAspectFit
+        return imageView
+    }()
+    
     private let titleLabel: UILabel = {
         let label = UILabel(frame: CGRect(x : 70, y : 169, width: 238, height: 44))
         label.text = "동네라서 가능한 모든것\n당근에서 가까운 이웃과 함께해요."
@@ -59,7 +66,7 @@ class LoginViewController: UIViewController {
     }
     
     private func setLayout() {
-        [titleLabel, idTextField, pwTextField, loginButton].forEach{self.view.addSubview($0)}
+        [loginImageView, titleLabel, idTextField, pwTextField, loginButton].forEach{self.view.addSubview($0)}
     }
     
     @objc
