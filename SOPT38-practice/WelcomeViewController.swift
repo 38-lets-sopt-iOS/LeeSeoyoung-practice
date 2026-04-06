@@ -50,6 +50,12 @@ class WelcomeViewController: UIViewController {
         return button
     }()
     
+    private let datePicker: UIDatePicker = {
+        let datePicker = UIDatePicker(frame: CGRect(x: 40, y: 600, width: 0, height: 0))
+        datePicker.datePickerMode = .date
+        return datePicker
+    }()
+    
     override func viewDidLoad() {
         super.viewDidLoad()
         view.backgroundColor = .white
@@ -62,7 +68,7 @@ class WelcomeViewController: UIViewController {
     }
     
     private func setLayout() {
-        [welcomImageView, welcomeLabel, mainButton, backToLoginButton].forEach{self.view.addSubview($0)}
+        [welcomImageView, welcomeLabel, mainButton, backToLoginButton, datePicker].forEach{self.view.addSubview($0)}
     }
 
     @objc
