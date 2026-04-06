@@ -22,7 +22,7 @@ class WelcomeViewController: UIViewController {
         let label = UILabel(frame: CGRect(x: 115, y: 295, width: 145, height: 60))
         label.text = "???님\n반가워요!"
         label.textAlignment = .center
-        label.font = .boldSystemFont(ofSize: 25)
+        label.font = UIFont(name: "Pretendard-ExtraBold", size: 25)
         label.numberOfLines = 2
         label.adjustsFontSizeToFitWidth = true // 텍스트가 UILabel 너비 초과할 때 폰트 크기 줄여 맞춤
         label.minimumScaleFactor = 0.5 // 폰트 크기 50%까지 줄일 수 있음
@@ -34,7 +34,7 @@ class WelcomeViewController: UIViewController {
         button.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 15/255, alpha: 1)
         button.setTitle("메인으로", for: .normal)
         button.setTitleColor(.white, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
         button.layer.cornerRadius = 3
         return button
     }()
@@ -44,7 +44,7 @@ class WelcomeViewController: UIViewController {
         button.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/255, alpha: 1)
         button.setTitle("다시 로그인", for: .normal)
         button.setTitleColor(.gray, for: .normal)
-        button.titleLabel?.font = .boldSystemFont(ofSize: 18)
+        button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
         button.layer.cornerRadius = 3
         button.addTarget(self, action: #selector(backToLoginTapped), for: .touchUpInside)
         return button
