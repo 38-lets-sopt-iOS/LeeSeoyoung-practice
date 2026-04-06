@@ -14,6 +14,7 @@ class WelcomeViewController: UIViewController {
     private let welcomImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 112, y: 87, width: 150, height: 150))
         imageView.image = UIImage(named: "welcome")
+        imageView.contentMode = .scaleAspectFit // 이미지 표시 방식 설정 - 원본 비율 유지
         return imageView
     }()
     
