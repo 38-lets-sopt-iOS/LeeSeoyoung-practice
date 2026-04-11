@@ -1,5 +1,5 @@
 //
-//  LoginViewController.swift
+//  LoginViewController_DelegatePattern.swift
 //  SOPT38-practice
 //
 //  Created by Seoyoung Lee on 4/6/26.
@@ -7,7 +7,13 @@
 
 import UIKit
 
-class LoginViewController: UIViewController {
+class LoginViewController_DelegatePattern: UIViewController, RetryLoginDelegateProtocol {
+    func retryLogin(id: String) {
+        idTextField.text = ""
+        pwTextField.text = ""
+        titleLabel.text = "\(id)님, 다시 로그인해요!"
+    }
+    
     
     private let loginImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 160, y: 90, width: 55, height: 57))
@@ -76,15 +82,16 @@ class LoginViewController: UIViewController {
     }
     
     private func presentToWelcomeVC() {
-        let welcomeViewController = WelcomeViewController()
+        let welcomeViewController = WelcomeViewController_DelegatePattern()
         welcomeViewController.modalPresentationStyle = .formSheet
         welcomeViewController.setLabelText(id: idTextField.text)
         self.present(welcomeViewController, animated: true)
     }
     
     private func pushToWelcomeVC() {
-        let welcomeViewController = WelcomeViewController()
+        let welcomeViewController = WelcomeViewController_DelegatePattern()
         welcomeViewController.setLabelText(id: idTextField.text)
+        welcomeViewController.delegate = self
         self.navigationController?.pushViewController(welcomeViewController, animated: true)
     }
 }

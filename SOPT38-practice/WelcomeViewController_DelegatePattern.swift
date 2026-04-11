@@ -1,5 +1,5 @@
 //
-//  WelcomeController.swift
+//  WelcomeController_DelegatePattern.swift
 //  SOPT38-practice
 //
 //  Created by Seoyoung Lee on 4/7/26.
@@ -7,7 +7,13 @@
 
 import UIKit
 
-class WelcomeViewController: UIViewController {
+protocol RetryLoginDelegateProtocol: AnyObject { // AnyObject를 상속한 프로토콜은 클래스만 채택할 수 있다.
+    func retryLogin(id: String)
+}
+
+class WelcomeViewController_DelegatePattern: UIViewController {
+    
+    weak var delegate: RetryLoginDelegateProtocol?
     
     private var userId: String?
     
@@ -46,7 +52,7 @@ class WelcomeViewController: UIViewController {
         button.setTitleColor(.gray, for: .normal)
         button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
         button.layer.cornerRadius = 3
-        button.addTarget(self, action: #selector(backToLoginTapped), for: .touchUpInside)
+        button.addTarget(self, action: #selector(backToLoginDidTap), for: .touchUpInside)
         return button
     }()
     
@@ -85,7 +91,11 @@ class WelcomeViewController: UIViewController {
     }
 
     @objc
-    private func backToLoginTapped() {
+    private func backToLoginDidTap() {
+        if let id = userId {
+            delegate?.retryLogin(id: id)
+        }
+        
         if self.navigationController == nil {
             self.dismiss(animated: true)
         } else {
