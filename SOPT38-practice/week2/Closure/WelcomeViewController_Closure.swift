@@ -1,5 +1,5 @@
 //
-//  WelcomeController_DelegatePattern.swift
+//  WelcomeController.swift
 //  SOPT38-practice
 //
 //  Created by Seoyoung Lee on 4/7/26.
@@ -7,15 +7,11 @@
 
 import UIKit
 
-protocol RetryLoginDelegateProtocol: AnyObject { // AnyObject를 상속한 프로토콜은 클래스만 채택할 수 있다.
-    func retryLogin(id: String)
-}
-
-class WelcomeViewController_DelegatePattern: UIViewController {
-    
-    weak var delegate: RetryLoginDelegateProtocol?
+class WelcomeViewController_Closure: UIViewController {
     
     private var userId: String?
+    
+    var backToLoginCompletion: ((String) -> Void)?
     
     private let welcomImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 112, y: 87, width: 150, height: 150))
@@ -26,7 +22,7 @@ class WelcomeViewController_DelegatePattern: UIViewController {
     
     private let welcomeLabel: UILabel = {
         let label = UILabel(frame: CGRect(x: 115, y: 295, width: 145, height: 60))
-        label.text = "???님\n반가워요!"
+        label.text = ""
         label.textAlignment = .center
         label.font = UIFont(name: "Pretendard-ExtraBold", size: 25)
         label.numberOfLines = 2
@@ -92,10 +88,11 @@ class WelcomeViewController_DelegatePattern: UIViewController {
 
     @objc
     private func backToLoginDidTap() {
-        if let id = userId {
-            delegate?.retryLogin(id: id)
-        }
+        guard let backToLoginCompletion = backToLoginCompletion else { return }
         
+        if let id = userId {
+            backToLoginCompletion(id)
+        }
         if self.navigationController == nil {
             self.dismiss(animated: true)
         } else {
