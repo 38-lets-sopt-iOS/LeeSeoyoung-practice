@@ -33,7 +33,7 @@ class LoginViewController: UIViewController {
         textField.layer.cornerRadius = 3
         textField.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/255, alpha: 1)
         textField.placeholder = "아이디"
-        textField.font = .boldSystemFont(ofSize: 14)
+        textField.font = UIFont(name: "Pretendard-Bold", size: 14)
         return textField
     }()
     
@@ -43,8 +43,9 @@ class LoginViewController: UIViewController {
         textField.leftViewMode = .always
         textField.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/255, alpha: 1)
         textField.placeholder = "비밀번호"
-        textField.font = .boldSystemFont(ofSize: 14)
+        textField.font = UIFont(name: "Pretendard-Bold", size: 14)
         textField.layer.cornerRadius = 3
+        textField.isSecureTextEntry = true
         return textField
     }()
     
@@ -62,10 +63,10 @@ class LoginViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         self.view.backgroundColor = .white
-        setLayout()
+        setUI()
     }
     
-    private func setLayout() {
+    private func setUI() {
         [loginImageView, titleLabel, idTextField, pwTextField, loginButton].forEach{self.view.addSubview($0)}
     }
     
@@ -75,12 +76,12 @@ class LoginViewController: UIViewController {
         pushToWelcomeVC()
     }
     
-    private func presentToWelcomeVC() {
-        let welcomeViewController = WelcomeViewController()
-        welcomeViewController.modalPresentationStyle = .formSheet
-        welcomeViewController.setLabelText(id: idTextField.text)
-        self.present(welcomeViewController, animated: true)
-    }
+//    private func presentToWelcomeVC() {
+//        let welcomeViewController = WelcomeViewController()
+//        welcomeViewController.modalPresentationStyle = .formSheet
+//        welcomeViewController.setLabelText(id: idTextField.text)
+//        self.present(welcomeViewController, animated: true)
+//    }
     
     private func pushToWelcomeVC() {
         let welcomeViewController = WelcomeViewController()
