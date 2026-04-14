@@ -31,7 +31,7 @@ class LoginViewController: UIViewController {
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
         textField.leftViewMode = .always
         textField.layer.cornerRadius = 3
-        textField.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/255, alpha: 1)
+        textField.backgroundColor = .grey200
         textField.placeholder = "아이디"
         textField.font = UIFont(name: "Pretendard-Bold", size: 14)
         return textField
@@ -41,7 +41,7 @@ class LoginViewController: UIViewController {
         let textField = UITextField(frame: CGRect(x: 20, y: 335, width: 335, height: 52))
         textField.leftView = UIView(frame: CGRect(x: 0, y: 0, width: 23, height: 0))
         textField.leftViewMode = .always
-        textField.backgroundColor = UIColor(red: 221/255, green: 222/255, blue: 227/255, alpha: 1)
+        textField.backgroundColor = .grey200
         textField.placeholder = "비밀번호"
         textField.font = UIFont(name: "Pretendard-Bold", size: 14)
         textField.layer.cornerRadius = 3
@@ -51,7 +51,7 @@ class LoginViewController: UIViewController {
     
     private let loginButton: UIButton = {
         let button = UIButton(frame: CGRect(x: 20, y: 515, width: 335, height: 57))
-        button.backgroundColor = UIColor(red: 255/255, green: 111/255, blue: 15/255, alpha: 1)
+        button.backgroundColor = .primaryOrange
         button.setTitle("로그인하기", for: .normal)
         button.setTitleColor(.white, for: .normal)
         button.titleLabel?.font = UIFont(name: "Pretendard-Bold", size: 18)
