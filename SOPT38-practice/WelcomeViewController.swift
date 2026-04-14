@@ -11,7 +11,7 @@ class WelcomeViewController: UIViewController {
     
     private var userId: String?
     
-    private let welcomImageView: UIImageView = {
+    private let welcomeImageView: UIImageView = {
         let imageView = UIImageView(frame: CGRect(x: 112, y: 87, width: 150, height: 150))
         imageView.image = UIImage(named: "welcome")
         imageView.contentMode = .scaleAspectFit // 이미지 표시 방식 설정 - 원본 비율 유지
@@ -68,7 +68,7 @@ class WelcomeViewController: UIViewController {
     }
     
     private func setLayout() {
-        [welcomImageView, welcomeLabel, mainButton, backToLoginButton, datePicker].forEach{self.view.addSubview($0)}
+        [welcomeImageView, welcomeLabel, mainButton, backToLoginButton, datePicker].forEach{self.view.addSubview($0)}
     }
 
     @objc
