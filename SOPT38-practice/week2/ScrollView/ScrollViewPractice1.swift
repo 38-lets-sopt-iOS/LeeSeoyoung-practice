@@ -12,7 +12,7 @@ class ScrollViewPractice1: UIViewController {
     private let scrollView = UIScrollView()
     private let contentView = UIView()
     
-    private let grennView = UIView()
+    private let greenView = UIView()
     private let blueView = UIView()
     
     override func viewDidLoad() {
@@ -23,12 +23,12 @@ class ScrollViewPractice1: UIViewController {
     
     private func setUI() {
         view.backgroundColor = .white
-        grennView.backgroundColor = .green
+        greenView.backgroundColor = .green
         blueView.backgroundColor = .blue
         
         view.addSubview(scrollView)
         scrollView.addSubview(contentView)
-        [grennView, blueView].forEach {
+        [greenView, blueView].forEach {
             contentView.addSubview($0)
         }
     }
@@ -44,14 +44,14 @@ class ScrollViewPractice1: UIViewController {
             $0.height.greaterThanOrEqualToSuperview().priority(.low)
         }
         
-        grennView.snp.makeConstraints {
+        greenView.snp.makeConstraints {
             $0.top.equalToSuperview()
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(800)
         }
         
         blueView.snp.makeConstraints {
-            $0.top.equalTo(grennView.snp.bottom)
+            $0.top.equalTo(greenView.snp.bottom)
             $0.leading.trailing.equalToSuperview()
             $0.height.equalTo(800)
             $0.bottom.equalToSuperview()
