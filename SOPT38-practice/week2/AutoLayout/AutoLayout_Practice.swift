@@ -57,5 +57,14 @@ class AutoLayout_Practice: UIViewController {
                                      view2.leadingAnchor.constraint(equalTo: view1.trailingAnchor),
                                      view2.widthAnchor.constraint(equalToConstant: width),
                                      view2.heightAnchor.constraint(equalToConstant: height)])
+        NSLayoutConstraint.activate([view3.topAnchor.constraint(equalTo: view2.bottomAnchor),
+                                     view3.leadingAnchor.constraint(equalTo: view1.leadingAnchor),
+                                     view3.widthAnchor.constraint(equalToConstant: width),
+                                     view3.heightAnchor.constraint(equalToConstant: height)])
+        NSLayoutConstraint.activate([view4.topAnchor.constraint(equalTo: view3.bottomAnchor),
+                                     view4.leadingAnchor.constraint(equalTo: view1.trailingAnchor),
+                                     view4.widthAnchor.constraint(equalToConstant: width),
+                                     view4.heightAnchor.constraint(equalToConstant: height)])
+        
     }
 }
