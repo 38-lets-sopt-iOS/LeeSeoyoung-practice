@@ -45,6 +45,7 @@ class LoginViewController_Closure: UIViewController {
         textField.placeholder = "비밀번호"
         textField.font = .boldSystemFont(ofSize: 14)
         textField.layer.cornerRadius = 3
+        textField.isSecureTextEntry = true
         return textField
     }()
     
@@ -71,15 +72,7 @@ class LoginViewController_Closure: UIViewController {
     
     @objc
     private func loginButtonTapped() {
-//        presentToWelcomeVC()
         pushToWelcomeVC()
-    }
-    
-    private func presentToWelcomeVC() {
-        let welcomeViewController = WelcomeViewController_Closure()
-        welcomeViewController.modalPresentationStyle = .formSheet
-        welcomeViewController.setLabelText(id: idTextField.text)
-        self.present(welcomeViewController, animated: true)
     }
     
     private func pushToWelcomeVC() {
