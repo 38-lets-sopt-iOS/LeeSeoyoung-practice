@@ -48,7 +48,7 @@ class AutoLayout_Practice: UIViewController {
     private func setLayout() {
         let width = UIScreen.main.bounds.width/2
         let height = UIScreen.main.bounds.height/4
-        //TODO
+
         NSLayoutConstraint.activate([view1.topAnchor.constraint(equalTo: view.topAnchor),
                                      view1.leadingAnchor.constraint(equalTo: view.leadingAnchor),
                                      view1.widthAnchor.constraint(equalToConstant: width),
