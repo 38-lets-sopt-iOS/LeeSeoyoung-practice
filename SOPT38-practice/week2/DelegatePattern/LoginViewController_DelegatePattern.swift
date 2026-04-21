@@ -51,6 +51,7 @@ class LoginViewController_DelegatePattern: UIViewController, RetryLoginDelegateP
         textField.placeholder = "비밀번호"
         textField.font = .boldSystemFont(ofSize: 14)
         textField.layer.cornerRadius = 3
+        textField.isSecureTextEntry = true
         return textField
     }()
     
@@ -77,15 +78,7 @@ class LoginViewController_DelegatePattern: UIViewController, RetryLoginDelegateP
     
     @objc
     private func loginButtonTapped() {
-//        presentToWelcomeVC()
         pushToWelcomeVC()
-    }
-    
-    private func presentToWelcomeVC() {
-        let welcomeViewController = WelcomeViewController_DelegatePattern()
-        welcomeViewController.modalPresentationStyle = .formSheet
-        welcomeViewController.setLabelText(id: idTextField.text)
-        self.present(welcomeViewController, animated: true)
     }
     
     private func pushToWelcomeVC() {
