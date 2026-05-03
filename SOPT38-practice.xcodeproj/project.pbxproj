@@ -153,6 +153,8 @@
 /* Begin XCBuildConfiguration section */
 		A3F785F52F80CFB400349A4A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = A3F785E32F80CFB300349A4A /* SOPT38-practice */;
+			baseConfigurationReferenceRelativePath = week4/Config.xcconfig;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -215,6 +217,8 @@
 		};
 		A3F785F72F80CFB400349A4A /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReferenceAnchor = A3F785E32F80CFB300349A4A /* SOPT38-practice */;
+			baseConfigurationReferenceRelativePath = week4/Config.xcconfig;
 			buildSettings = {
 				ALWAYS_SEARCH_USER_PATHS = NO;
 				ASSETCATALOG_COMPILER_GENERATE_SWIFT_ASSET_SYMBOL_EXTENSIONS = YES;
