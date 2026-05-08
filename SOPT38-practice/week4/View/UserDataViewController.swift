@@ -139,11 +139,15 @@ final class UserDataViewController: UIViewController {
             do {
                 let response = try await GetUserDataService.shared.getUserData(userId: userId)
                 
-                idTextField.text = response.data.loginId
-                nameTextField.text = response.data.name
-                emailTextField.text = response.data.email
-                ageTextField.text = "\(response.data.age)"
-                partTextField.text = response.data.part
+                idTextField.text = response.data?.loginId
+                nameTextField.text = response.data?.name
+                emailTextField.text = response.data?.email
+                ageTextField.text = "\(response.data?.age ?? 0)"
+                partTextField.text = response.data?.part
+                
+                name = response.data?.name ?? ""
+                email = response.data?.email ?? ""
+                age = response.data?.age ?? 0
             } catch {
                 print("유저 데이터 조회 실패", error)
             }
@@ -170,13 +174,20 @@ extension UserDataViewController {
     private func editButtonDidTap() {
         Task {
             do {
-                let _ = try await SignupService.shared.postSignup(loginId: id, password: password, name: name, email: email, age: age, part: part)
+                let _ = try await PatchUserDataService.shared.patchUserData(userId: userId, name: name, email: email, age: age)
                 
-                self.navigationController?.pushViewController(LoginAPIViewController(), animated: true)
-                print("회원가입 성공")
+                print("정보 수정 성공")
+                let alert = UIAlertController(
+                    title: "유저 정보를 수정했습니다.",
+                    message: "수정 완료",
+                    preferredStyle: .alert
+                )
+                let okAction = UIAlertAction(title: "확인", style: .default)
+                alert.addAction(okAction)
+                self.present(alert, animated: true)
             } catch {
                 let alert = UIAlertController(
-                    title: "회원가입 실패",
+                    title: "정보 수정 실패",
                     message: error.localizedDescription,
                     preferredStyle: .alert
                 )
