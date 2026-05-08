@@ -14,8 +14,3 @@ struct SignupResponseDTO: Decodable {
     let code: String
     let meta: ErrorResponseDTO?
 }
-
-struct ErrorResponseDTO: Decodable {
-    let path: String
-    let timestamp: String
-}
