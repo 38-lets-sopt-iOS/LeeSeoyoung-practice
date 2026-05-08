@@ -12,7 +12,8 @@ struct GetUserDataResponseDTO: Decodable {
     let status: Int
     let message: String
     let code: String
-    let data: UserInfoData
+    let data: UserInfoData?
+    let meta: ErrorResponseDTO?
 }
 
 struct UserInfoData: Decodable {
