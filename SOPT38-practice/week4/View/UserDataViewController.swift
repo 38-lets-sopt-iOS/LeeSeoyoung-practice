@@ -195,7 +195,7 @@ extension UserDataViewController {
                 alert.addAction(okAction)
                 self.present(alert, animated: true)
                 
-                print("회원가입 실패", error)
+                print("정보 수정 실패", error)
             }
         }
     }

@@ -1,5 +1,5 @@
 //
-//  PatchUserDataResp.swift
+//  PatchUserDataResponseDTO.swift
 //  SOPT38-practice
 //
 //  Created by Seoyoung Lee on 5/8/26.
