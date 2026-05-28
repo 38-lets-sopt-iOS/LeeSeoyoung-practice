@@ -13,10 +13,13 @@ struct ChatListView: View {
     @Binding var activeStates: [Bool]
     
     var body: some View {
-        ForEach(chatUsers.indices, id: \.self) { index in
-            ChatRowView(chatUser: chatUsers[index], isActive: activeStates[index])
-            Divider()
+        ScrollView {
+            VStack {
+                ForEach(chatUsers.indices, id: \.self) { index in
+                    ChatRowView(chatUser: chatUsers[index], isActive: activeStates[index])
+                    Divider()
+                }
+            }
         }
-        .listStyle(.plain)
     }
 }
