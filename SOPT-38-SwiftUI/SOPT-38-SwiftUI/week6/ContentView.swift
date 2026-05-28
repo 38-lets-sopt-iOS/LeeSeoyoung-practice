@@ -16,6 +16,7 @@ struct ContentView: View {
             StoryScrollVIew(chatUsers: ChatUser.users, activeStates: $activeStates)
             Spacer().frame(height: 20)
             ChatListView(chatUsers: ChatUser.users, activeStates: $activeStates)
+            Spacer()
         }
     }
 }
